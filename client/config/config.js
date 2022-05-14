@@ -1,5 +1,5 @@
 const API_SERVER = {
-  host: process.env.ENV == "dev" ? "http://localhost" : "http://localhost",
+  host: process.env.ENV == "dev" ? "http://localhost" : "http://3.110.114.13",
   port: "3000",
 };
 

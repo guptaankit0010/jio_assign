@@ -9,6 +9,9 @@ async function getPageData(page) {
 
 function sortJobsByDate(jobs = []) {
   jobs.sort(function (a, b) {
+    if (!a || !b) {
+      return -1;
+    }
     let a_jobPostDays_Int = parseInt(a.jobPostDays.split(" ")[0]);
     let b_jobPostDays_Int = parseInt(b.jobPostDays.split(" ")[0]);
     if (a_jobPostDays_Int < b_jobPostDays_Int) {
