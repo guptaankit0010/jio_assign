@@ -61,6 +61,9 @@ exports.getJobs = async function (req, res, next) {
           let nextPagefilteredData = filterJobsByLoc(data, location);
           filteredData = filteredData.concat(nextPagefilteredData);
         }
+        else{
+          filteredData= filteredData.concat(data)
+        }
         if (filteredData.length >= MAX_JOBS) {
           console.log("got required no of jobs");
           filteredData.splice(MAX_JOBS);
