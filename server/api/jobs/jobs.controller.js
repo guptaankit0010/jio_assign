@@ -4,7 +4,6 @@ const { MAX_JOBS } = require("./defaults");
 async function getPageData(page) {
   let key = `page${page}`;
   let data = JSON.parse(await redis.get(key));
-  console.log("getPageData",data,key)
   return data;
 }
 
@@ -42,7 +41,7 @@ exports.getJobs = async function (req, res, next) {
     let location = req.query.location ? req.query.location : null;
 
     let data = [];
-    let allKeys = await redis.getAllKeys();
+    let allKeys = await redis.getAllKeys("page");
     let filteredData = [];
 
     if (!page) {
