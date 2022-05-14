@@ -4,6 +4,7 @@ const { MAX_JOBS } = require("./defaults");
 async function getPageData(page) {
   let key = `page${page}`;
   let data = JSON.parse(await redis.get(key));
+  console.log("getPageData",data,key)
   return data;
 }
 
