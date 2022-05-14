@@ -1,0 +1,16 @@
+{
+  "name": "jio_assign",
+  "version": "0.0.1",
+  "description": "jio assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "puppeteer": "^14.0.0",
+    "redis": "^4.1.0"
+  }
+}
