@@ -1,10 +1,10 @@
 # jio_assign
 
-# Server
+# Server Side
 # Run below commands
 
-cd server
-node index.js
+1. cd server
+2. node index.js
 
 This will run api server on port 3000
 
@@ -18,13 +18,13 @@ http://3.110.114.13:3000/
 
 # For local environment , use below cmd
 
-ENV="dev" node index.js 10
+1. ENV="dev" node index.js 10
 "10" is the number of pages to hit
 
 This will hit or post data to http://localhost:3000
 
 # For hosted ec2 environment , use below cmd
-node index.js 10
+2. node index.js 10
 This will hit or post data to http://3.110.114.13:3000/
 
 # Sample apis
