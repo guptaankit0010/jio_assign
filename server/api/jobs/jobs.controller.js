@@ -39,7 +39,8 @@ exports.getJobs = async function (req, res, next) {
     let page =
       req.query.page && req.query.page != "" ? parseInt(req.query.page) : null;
     let location = req.query.location ? req.query.location : null;
-
+    let limitToPage =
+      req.query.limitToPage === "true" ? req.query.limitToPage : null;
     let data = [];
     let allKeys = await redis.getAllKeys("page");
     let filteredData = [];
@@ -55,14 +56,14 @@ exports.getJobs = async function (req, res, next) {
       filteredData = sortJobsByDate(filteredData);
       filteredData.splice(MAX_JOBS);
     } else {
-      for (let i = page; i <= allKeys.length; i++) {
+      let uptoPage = limitToPage ? page : allKeys.length;
+      for (let i = page; i <= uptoPage; i++) {
         let data = await getPageData(i);
         if (location) {
           let nextPagefilteredData = filterJobsByLoc(data, location);
           filteredData = filteredData.concat(nextPagefilteredData);
-        }
-        else{
-          filteredData= filteredData.concat(data)
+        } else {
+          filteredData = filteredData.concat(data);
         }
         if (filteredData.length >= MAX_JOBS) {
           console.log("got required no of jobs");
