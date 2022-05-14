@@ -57,10 +57,13 @@ exports.getJobs = async function (req, res, next) {
     } else {
       for (let i = page; i <= allKeys.length; i++) {
         let data = await getPageData(i);
-        let nextPagefilteredData = filterJobsByLoc(data, location);
-        filteredData = filteredData.concat(nextPagefilteredData);
+        if (location) {
+          let nextPagefilteredData = filterJobsByLoc(data, location);
+          filteredData = filteredData.concat(nextPagefilteredData);
+        }
         if (filteredData.length >= MAX_JOBS) {
           console.log("got required no of jobs");
+          filteredData.splice(MAX_JOBS);
           break;
         }
       }
