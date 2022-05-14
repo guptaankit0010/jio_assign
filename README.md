@@ -25,7 +25,7 @@ This will hit or post data to http://localhost:3000
 
 # For hosted ec2 environment , use below cmd
 node index.js 10
-
+This will hit or post data to http://3.110.114.13:3000/
 
 # Sample apis
 
